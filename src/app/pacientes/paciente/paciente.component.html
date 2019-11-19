@@ -1,0 +1,37 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user" [class.green-icon]="Nome.valid" [class.red-icon]="Nome.invalid && Nome.touched"></i>
+                </div>
+            </div>
+            <input name="Nome" #Nome="ngModel" [(ngModel)]="service.Nome" class="form-control" placeholder="Nome" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user" [class.green-icon]="Sobrenome.valid" [class.red-icon]="Sobrenome.invalid && Sobrenome.touched"></i>
+                </div>
+            </div>
+            <input name="Sobrenome" #Sobrenome="ngModel" [(ngModel)]="service.Sobrenome" class="form-control" placeholder="Sobrenome" required maxlength="100" minlength="5">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user" [class.green-icon]="DataNascimento.valid" [class.red-icon]="DataNascimento.invalid && DataNascimento.touched"></i>
+                </div>
+            </div>
+            <input type="date" name="DataNascimento" #DataNascimento="ngModel" [(ngModel)]="service.DataNascimento" class="form-control" placeholder="Data Nascimento" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+        <button (click)="getItens()" class="btn btn-success btn-lg btn-block" type="button" ><i class="fas fa-database"></i> get</button>
+        <button (click)="postItens()" class="btn btn-success btn-lg btn-block" type="button" ><i class="fas fa-database"></i> post</button>
+    </div>
+</form>

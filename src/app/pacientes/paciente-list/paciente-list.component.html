@@ -1,1 +1,10 @@
-<p>paciente-list works!</p>
+<table class="table table-hover">
+    <tr *ngFor="let pd of service.list">
+      <td (click)="populateForm(pd)">{{pd.Nome}}A</td>
+      <td (click)="populateForm(pd)">{{pd.Sobrenome}}B</td>
+      <td (click)="populateForm(pd)">{{pd.DataNascimento}}C</td>
+      <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+      </td>
+    </tr>
+  </table>

@@ -37,11 +37,29 @@ export class PacienteComponent implements OnInit {
      res => {
        debugger;
        this.resetForm(form);
+       this.service.refreshList();
      },
      err => {
+       debugger;
        console.log(err);
      }
    )
  }
+
+ updateRecord(form: NgForm) {
+  this.service.putPaciente().subscribe(
+    res => {
+      this.resetForm(form);
+      //this.toastr.info('Submitted successfully', 'Payment Detail Register');
+      this.service.refreshList();
+    },
+    err => {
+      console.log(err);
+    }
+  )
+}
+
+ 
+
 }
 

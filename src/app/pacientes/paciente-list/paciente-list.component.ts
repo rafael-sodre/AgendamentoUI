@@ -20,9 +20,9 @@ export class PacienteListComponent implements OnInit {
     this.service.formData = Object.assign({}, pd);
   }
 
-  onDelete(Id) {
+  onDelete(id) {
     if (confirm('Are you sure to delete this record ?')) {
-      this.service.deletePaciente(Id)
+      this.service.deletePaciente(id)
         .subscribe(res => {
           debugger;
           this.service.refreshList();

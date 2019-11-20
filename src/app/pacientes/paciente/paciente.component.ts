@@ -29,7 +29,9 @@ export class PacienteComponent implements OnInit {
 
  onSubmit(form: NgForm) {
   if (this.service.formData.Id == 0)
-  this.insertRecord(form)
+    this.insertRecord(form)
+  else
+    this.updateRecord(form);
  }
 
  insertRecord(form: NgForm) {

@@ -13,45 +13,35 @@ export class PacienteComponent implements OnInit {
   constructor(private service: PacienteService) { }
 
   ngOnInit() {
-    //this.resetForm();
+    this.resetForm();
   }
 
-// resetForm(form?: NgForm) {
-//   if (form != null)
-//     form.form.reset();
-//   this.service.formData = {
-//      Id: 0,
-//      Nome: '',
-//      Sobrenome: '',
-//      DataNascimento: ''
-//  }
-//}
-//
-// onSubmit(form: NgForm) 
-//   if (this.service.formData.Id == 0)
-//     this.insertRecord(form)
-//   );
-  
-
-// insertRecord(form: NgForm) {
-//   this.service.postPaciente().subscribe(
-//     res => {
-//       debugger;
-//       this.resetForm(form);
-//       this.service.refreshList();
-//     },
-//     err => {
-//       debugger;
-//       console.log(err);
-//     }
-//   )
-// }
-
-  getItens(){
-    this.service.testeGet().subscribe(res => console.log({res}));
-  }
-
-  postItens(){
-    this.service.testePost().subscribe(res => console.log({res}));
+ resetForm(form?: NgForm) {
+   if (form != null)
+     form.form.reset();
+   this.service.formData = {
+      Id: 0,
+      Nome: '',
+      Sobrenome: '',
+      DataNascimento: ''
   }
 }
+
+ onSubmit(form: NgForm) {
+  if (this.service.formData.Id == 0)
+  this.insertRecord(form)
+ }
+
+ insertRecord(form: NgForm) {
+   this.service.postPaciente().subscribe(
+     res => {
+       debugger;
+       this.resetForm(form);
+     },
+     err => {
+       console.log(err);
+     }
+   )
+ }
+}
+

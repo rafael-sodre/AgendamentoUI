@@ -16,9 +16,9 @@ export class PacienteComponent implements OnInit {
     this.resetForm();
   }
 
- resetForm(form?: NgForm) {
-   if (form != null)
-     form.form.reset();
+ resetForm(ngFormPaciente?: NgForm) {
+   if (ngFormPaciente != null)
+   ngFormPaciente.form.reset();
    this.service.formData = {
       Id: 0,
       Nome: '',
@@ -27,18 +27,18 @@ export class PacienteComponent implements OnInit {
   }
 }
 
- onSubmit(form: NgForm) {
+ onSubmit(ngFormPaciente: NgForm) {
   if (this.service.formData.Id == 0)
-    this.insertRecord(form)
+    this.insertRecord(ngFormPaciente)
   else
-    this.updateRecord(form);
+    this.updateRecord(ngFormPaciente);
  }
 
- insertRecord(form: NgForm) {
+ insertRecord(ngFormPaciente: NgForm) {
    this.service.postPaciente().subscribe(
      res => {
        debugger;
-       this.resetForm(form);
+       this.resetForm(ngFormPaciente);
        this.service.refreshList();
      },
      err => {
@@ -48,10 +48,10 @@ export class PacienteComponent implements OnInit {
    )
  }
 
- updateRecord(form: NgForm) {
+ updateRecord(ngFormPaciente: NgForm) {
   this.service.putPaciente().subscribe(
     res => {
-      this.resetForm(form);
+      this.resetForm(ngFormPaciente);
       //this.toastr.info('Submitted successfully', 'Payment Detail Register');
       this.service.refreshList();
     },

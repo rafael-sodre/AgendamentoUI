@@ -8,6 +8,9 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { PacienteComponent } from './Pacientes/paciente/paciente.component';
 import { PacienteListComponent } from './Pacientes/paciente-list/paciente-list.component';
 import { PacienteService } from './shared/paciente.service';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico/medico.component';
+import { MedicoListComponent } from './medicos/medico-list/medico-list.component';
 
 
 
@@ -16,7 +19,10 @@ import { PacienteService } from './shared/paciente.service';
     AppComponent,
     PacientesComponent,
     PacienteComponent,
-    PacienteListComponent
+    PacienteListComponent,
+    MedicosComponent,
+    MedicoComponent,
+    MedicoListComponent
   ],
   imports: [
     BrowserModule,

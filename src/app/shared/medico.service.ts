@@ -26,6 +26,10 @@ export class MedicoService {
     return this.http.delete(this.rootURL + '/medico/' + id)
   }
 
+  getMedicos(){
+    return this.http.get(this.rootURL + '/medico')
+  }
+
   refreshList(){
     this.http.get(this.rootURL + '/medico')
     .toPromise()

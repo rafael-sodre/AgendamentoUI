@@ -1,0 +1,32 @@
+<form #formConsulta="ngForm" autocomplete="off" (submit)="onSubmit(formConsulta)">
+    <div  class="input-group col-12" >
+        <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+        <div class="col-10">
+            <ngx-select [items]="pacientes" [(ngModel)]="pacienteId" optionTextField="nome" optionValueField="id" name="paciente"></ngx-select>
+        </div>
+        <div class="col-10">
+            <ngx-select [items]="medicos" [(ngModel)]="medicoId" optionTextField="nome" optionValueField="id" name="medico"></ngx-select>
+        </div>
+        <div class="col-10">
+            <select name="hora" (change)="horaSelecionada($event.target.value)">
+                <option disabled selected value>Hora</option>
+                <option value="08">08:00</option>
+                <option value="09">09:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+            </select>
+        </div>
+        <button type="button" (click)="Teste()">Marcar Consulta</button>
+    </div>
+</form>

@@ -60,4 +60,8 @@ export class MedicoComponent implements OnInit {
       }
     )
   }
+
+  Teste(formMedico: NgForm){
+    console.log(formMedico.value)
+  }
 }

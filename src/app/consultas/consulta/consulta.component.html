@@ -1,32 +1,84 @@
 <form #formConsulta="ngForm" autocomplete="off" (submit)="onSubmit(formConsulta)">
-    <div  class="input-group col-12" >
-        <div class="input-group-prepend">
-            <div class="input-group-text bg-white">
-                <i class="fas fa-user"></i>
+    <input type="hidden" name="Id" [value]="consultaService.formData.Id">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
+            <ngx-select [items]="pacientes" #pacienteId="ngModel" [(ngModel)]="consultaService.formData.pacienteId" optionTextField="nome" optionValueField="id" name="pacienteId" class="form-control"></ngx-select>
         </div>
-        <div class="col-10">
-            <ngx-select [items]="pacientes" [(ngModel)]="pacienteId" optionTextField="nome" optionValueField="id" name="paciente"></ngx-select>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <ngx-select [items]="medicos" #medicoId="ngModel" [(ngModel)]="consultaService.formData.medicoId" optionTextField="nome" optionValueField="id" name="medicoId" class="form-control"></ngx-select>
         </div>
-        <div class="col-10">
-            <ngx-select [items]="medicos" [(ngModel)]="medicoId" optionTextField="nome" optionValueField="id" name="medico"></ngx-select>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <input type="date" name="dataConsulta" #dataConsulta="ngModel" [(ngModel)]="consultaService.formData.dataConsulta" class="form-control" placeholder="Data" required>
         </div>
-        <div class="col-10">
-            <select name="hora" (change)="horaSelecionada($event.target.value)">
+    </div>
+    <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            <select #Inicio="ngModel" [(ngModel)]="consultaService.formData.Inicio" name="inicio" class="form-control">
                 <option disabled selected value>Hora</option>
-                <option value="08">08:00</option>
-                <option value="09">09:00</option>
-                <option value="10">10:00</option>
-                <option value="11">11:00</option>
-                <option value="12">12:00</option>
-                <option value="13">13:00</option>
-                <option value="14">14:00</option>
-                <option value="15">15:00</option>
-                <option value="16">16:00</option>
-                <option value="17">17:00</option>
-                <option value="18">18:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
             </select>
         </div>
-        <button type="button" (click)="Teste()">Marcar Consulta</button>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        <select #Fim="ngModel" [(ngModel)]="consultaService.formData.Fim" name="fim" class="form-control">
+            <option disabled selected value>Hora</option>
+            <option value="08:59">08:59</option>
+            <option value="09:59">09:59</option>
+            <option value="10:59">10:59</option>
+            <option value="11:59">11:59</option>
+            <option value="12:59">12:59</option>
+            <option value="13:59">13:59</option>
+            <option value="14:59">14:59</option>
+            <option value="15:59">15:59</option>
+            <option value="16:59">16:59</option>
+            <option value="17:59">17:59</option>
+            <option value="18:59">18:59</option>
+        </select>
+    </div>
+</div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Submit</button>
+        <button class="btn btn-success btn-lg btn-block" type="button" (click)="Teste()"><i class="fas fa-database"></i> Teste</button>
     </div>
 </form>

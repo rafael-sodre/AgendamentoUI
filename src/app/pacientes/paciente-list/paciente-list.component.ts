@@ -21,7 +21,7 @@ export class PacienteListComponent implements OnInit {
   }
 
   onDelete(id) {
-    if (confirm('Are you sure to delete this record ?')) {
+    if (confirm('Tem certeza que deseja apagar?')) {
       this.service.deletePaciente(id)
         .subscribe(res => {
           debugger;

@@ -1,1 +1,13 @@
-<p>consulta-list works!</p>
+<table class="table table-hover">
+  <tr *ngFor="let c of service.list">
+    <td (click)="populateForm(c)">{{c.medicoId}}</td>
+    <td (click)="populateForm(c)">{{c.pacienteId}}</td>
+    <td (click)="populateForm(c)">{{c.inicio}}</td>
+    <td (click)="populateForm(c)">{{c.fim}}</td>
+    <td (click)="populateForm(c)">{{c.dataConsulta}}</td>
+
+    <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(c.id)"></i>
+    </td>
+  </tr>
+</table>
